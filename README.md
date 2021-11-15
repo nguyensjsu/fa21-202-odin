@@ -1,14 +1,28 @@
 # Odin - Search Algorithms Visualizer
 
+## Topic
 
-### Team Members
+## Team Members
 - Rounak Salim
 - Aidan Jones
 - Daniel Yeung
 - Hussein Adams
 
+## Areas of Contributions
 
-## Readme.md content
+## Project Summary
+
+## Architecture
+
+## Features Summary
+
+
+## Links
+ - User Story Video: 
+ - Demo Video: 
+ - Extra Credit Agile Video: <We doing this?>
+
+### Readme.md content (from canvas)
 - Make sure the root README.MD file highlights your team's work. Contents of Markdown  README.MD file should include:
     - The Topic of your team's project
     - The names of each team member
