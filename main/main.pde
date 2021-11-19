@@ -1,18 +1,3 @@
-
-// Demo of A* algorithm
-
-
-/**
- * Game of Life
- * by Joan Soler-Adillon.
- *
- * Press SPACE BAR to pause and change the cell's values 
- * with the mouse. On pause, click to activate/deactivate 
- * cells. Press 'R' to randomly reset the cells' grid. 
- * Press 'C' to clear the cells' grid. The original Game 
- * of Life was created by John Conway in 1970.
- */
-
 import java.util.ArrayList;
 
 // Size of cells
@@ -20,6 +5,7 @@ int cellSize = 10;
 
 color green = color(0, 200, 0);
 color black = color(0);
+color red = color(200, 0, 0);
 
 int[][] board; 
 
@@ -27,6 +13,7 @@ Keyboard keyboard;
 MainDisplay mainDisplay;
 MenuItems menuItems;
 GridDisplay gridDisplay;
+ISearchStrategy searchStrategy;
 
 void setup() {
   size (640, 360);
@@ -35,6 +22,7 @@ void setup() {
   board = new int[width/cellSize][height/cellSize];
   keyboard = new Keyboard();
   mainDisplay = new MainDisplay();
+  searchStrategy = new DepthFirstSearch();
 
   mainDisplay.addSubComponent((IDisplayComponent)(new GridDisplay()));
   mainDisplay.addSubComponent((IDisplayComponent)(new MenuItems()));
@@ -52,12 +40,22 @@ void setup() {
 
 
 void draw() {
-
   //Draw grid
   for (int x=0; x<width/cellSize; x++) {
     for (int y=0; y<height/cellSize; y++) {
-      if (board[x][y] == 1) fill(green);
-      else fill(black);
+      switch (board[x][y]) {
+        case 0:
+          fill(black);
+          break;
+        case 1:
+          fill(green);
+          break;
+        case 2:
+          fill(red);
+          break;
+        case 3:
+        
+      }
       rect (x*cellSize, y*cellSize, cellSize, cellSize);
     }
   }
@@ -84,5 +82,14 @@ void mouseClicked() {
 }
 
 void keyPressed() {
+  search(0, 0, width/cellSize-1, height/cellSize-1);
   keyboard.keyPressEvent(key);
+}
+
+void changeStrategy(ISearchStrategy strategy) {
+  searchStrategy = strategy;
+}
+
+void search(int startX, int startY, int endX, int endY) {
+  searchStrategy.search(board, startX, startY, endX, endY);
 }

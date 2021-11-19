@@ -25,4 +25,5 @@ public class GridDisplay implements IDisplayComponent, IClickEventHandler {
     public String name() {
         return "Grid Display";
     }
+    
 }

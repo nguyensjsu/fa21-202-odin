@@ -34,4 +34,5 @@ public class MainDisplay implements IDisplayComponent, IKeyboardObserver {
     public void keyPressed(char key) {
         System.out.println("Key pressed in main display " + key);
     }
+    
 }
