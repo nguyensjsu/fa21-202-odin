@@ -51,19 +51,16 @@
     - Daniel: Feedback
 
 
+#### November 18th, 2021
 
-### Readme.md content (from canvas)
-- Make sure the root README.MD file highlights your team's work. Contents of Markdown  README.MD file should include:
-    - The Topic of your team's project
-    - The names of each team member
-    - A summary of areas of contributions
-        - I.E. For each team member
-    - A summary of your team's project
-    - A High Level Architecture Diagram
-    - A summary of the key features
-        - Include any special design ideas implemented
-    - Link to your team's User Story Ad Video on YouTube (1 min max)
-    - Link to your team's Demo Video (15 mins max)
-    - Link to your team's Extra Credit Agile Video - Extra Credit (15 mins max)
+- Rounak to build a barebone project and push it by eod
+- Aidan to look into search algorithms (Dijkstra’s) algorithm
+- Hussein to also research how to import custom java classes into .pde files
+- Design meeting after we set up a barebone project.
 
+- Processing Path Finder package
+   - http://www.robotacid.com/PBeta/AILibrary/Pathfinder/index.html
+
+- Processing GUI options (ControlP5?)
+   - https://processing.org/reference/libraries/#gui
 
