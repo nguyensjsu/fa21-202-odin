@@ -1,9 +1,9 @@
 import java.awt.Point;
 import java.util.*;
 
-public class DepthFirstSearch implements ISearchStrategy {
+public class BreadthFirstSearch implements ISearchStrategy {
 
-    private static Stack<Point> stack = new Stack<Point>();
+    private static Queue<Point> queue = new LinkedList<Point>();
     private static HashSet<String> visited = new HashSet<String>();
 
     /**
@@ -15,11 +15,11 @@ public class DepthFirstSearch implements ISearchStrategy {
      * @param endY int indicating the ending y coordinate
      */
     public boolean search(int[][] grid, int startX, int startY, int endX, int endY) {
-        if (stack.isEmpty()) {
-            stack.push(new Point(startX, startY));
+        if (queue.isEmpty()) {
+            queue.add(new Point(startX, startY));
         }
 
-        Point p = stack.pop();
+        Point p = queue.remove();
         String coordinate = p.x + "," + p.y;
         if (!visited.contains(coordinate)) {
             visited.add(coordinate);
@@ -29,16 +29,16 @@ public class DepthFirstSearch implements ISearchStrategy {
             }
             grid[p.x][p.y] = 1;
             if (p.x >= 1 && grid[p.x - 1][p.y] == 0) {
-                stack.push(new Point(p.x - 1, p.y));
+                queue.add(new Point(p.x - 1, p.y));
             }
             if (p.x <= grid.length - 2 && grid[p.x + 1][p.y] == 0) {
-                stack.push(new Point(p.x + 1, p.y));
+                queue.add(new Point(p.x + 1, p.y));
             }
             if (p.y >= 1 && grid[p.x][p.y - 1] == 0) {
-                stack.push(new Point(p.x, p.y - 1));
+                queue.add(new Point(p.x, p.y - 1));
             }
             if (p.y <= grid[0].length - 2 && grid[p.x][p.y + 1] == 0) {
-                stack.push(new Point(p.x, p.y + 1));
+                queue.add(new Point(p.x, p.y + 1));
             }
         }
 
