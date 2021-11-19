@@ -3,6 +3,7 @@
 ## Topic
 
 ## Team Members
+
 - Rounak Salim
 - Aidan Jones
 - Daniel Yeung
@@ -16,40 +17,40 @@
 
 ## Features Summary
 
-
 ## Links
- - User Story Video: 
- - Demo Video: 
- - Extra Credit Agile Video: <We doing this?>
 
+- User Story Video:
+- Demo Video:
+- Extra Credit Agile Video: <We doing this?>
 
 ## Meeting Notes
 
 #### November 14th, 2021
 
 - Project proposal:
-   - Search algorithms visualization
-   - https://qiao.github.io/PathFinding.js/visual/
 
+  - Search algorithms visualization
+  - https://qiao.github.io/PathFinding.js/visual/
 
 - Proposed technologies: Processing, Java
 
 - Suggested algorithms to implement:
-    - BFS, DFS, Dijkstra’s (strategy pattern?)
-    - Adding new algos should be easy
+
+  - BFS, DFS, Dijkstra’s (strategy pattern?)
+  - Adding new algos should be easy
 
 - Patterns that can be used in the project:
-    - Strategy pattern for different search algorithms
-    - State pattern to indicate current state of search
-    - Possibly observer for displaying the animation
-    - Possibly command pattern for menu items to select search
 
- - XP core values
-    - Aidan: Communication
-    - Hussein: Respect
-    - Rounak: Simplicity
-    - Daniel: Feedback
+  - Strategy pattern for different search algorithms
+  - State pattern to indicate current state of search
+  - Possibly observer for displaying the animation
+  - Possibly command pattern for menu items to select search
 
+- XP core values
+  - Aidan: Communication
+  - Hussein: Respect
+  - Rounak: Simplicity
+  - Daniel: Feedback
 
 #### November 18th, 2021
 
@@ -59,8 +60,8 @@
 - Design meeting after we set up a barebone project.
 
 - Processing Path Finder package
-   - http://www.robotacid.com/PBeta/AILibrary/Pathfinder/index.html
+
+  - http://www.robotacid.com/PBeta/AILibrary/Pathfinder/index.html
 
 - Processing GUI options (ControlP5?)
-   - https://processing.org/reference/libraries/#gui
-
+  - https://processing.org/reference/libraries/#gui
