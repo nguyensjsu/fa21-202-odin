@@ -32,7 +32,8 @@ public class MainDisplay implements IDisplayComponent, IKeyboardObserver {
     }
 
     public void keyPressed(char key) {
+        // @TODO: Flipping to the search state from here needs to be implemented
         System.out.println("Key pressed in main display " + key);
     }
-    
+
 }
