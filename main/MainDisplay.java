@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import processing.core.PGraphics;
+
 
 public class MainDisplay implements IDisplayComponent, IKeyboardObserver {
     
@@ -36,4 +38,19 @@ public class MainDisplay implements IDisplayComponent, IKeyboardObserver {
         System.out.println("Key pressed in main display " + key);
     }
 
+    @Override
+    public void setGraphicsElement(PGraphics graphics) {
+        
+    }
+
+    @Override
+    public PGraphics getGraphicsElement() {
+        return null;
+    }
+
+    @Override
+    public void draw() {
+        for (IDisplayComponent obj:components)
+            obj.draw();
+    }
 }
