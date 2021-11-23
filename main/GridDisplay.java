@@ -1,20 +1,27 @@
 import processing.core.PGraphics;
+import processing.core.PApplet;
 
 
 public class GridDisplay implements IDisplayComponent, IClickEventHandler {
 
     IClickEventHandler chain;
     private PGraphics graphics;
+    private PApplet main;
 
-    private int width, height, cellWidth, cellHeight;
+    private int width, height, cellWidth, cellHeight, mouseX, mouseY;
     int[][] grid;
     
-    public GridDisplay(int width, int height, int cellWidth, int cellHeight) {
+    public GridDisplay(PApplet main, int width, int height, int cellWidth, int cellHeight, int mouseX, int mouseY) {
         this.width = width;
         this.height = height;
         this.cellHeight = cellHeight;
         this.cellWidth = cellWidth;
+        this.mouseX = mouseX;
+        this.mouseY = mouseY;
+        this.main = main;
         this.grid = new int[width/cellWidth][height/cellHeight];
+
+        setGraphicsElement(main.createGraphics(width, height, main.JAVA2D));
     }
 
     public void setGraphicsElement(PGraphics graphics) {
@@ -30,6 +37,8 @@ public class GridDisplay implements IDisplayComponent, IClickEventHandler {
     public int[][] getGrid() {return grid;}
     public int getWidth() {return width;}
     public int getHeight() {return height;}
+    public int getMouseX() {return mouseX;}
+    public int getMouseY() {return mouseY;}
     public int getCellWidth() {return cellWidth;}
     public int getCellHeight() {return cellHeight;}
 

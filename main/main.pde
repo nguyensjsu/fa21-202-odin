@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-
+import g4p_controls.*;
 // Size of cells
 int cellSize = 10;
 
@@ -24,24 +24,33 @@ ControlsDisplay controlsDisplay;
 GridDisplay gridDisplay;
 ISearchStrategy searchStrategy;
 
+Button setStartPositionButton;
+Button setEndPositionButton;
+
 void setup() {
   size (displayWidth, displayHeight);
   
-  // make a display with a grid that takes up 70 percent of the main display 
   int gridWidth = int(width*0.70);
   int gridHeight = height;
   int cellWidth = 10;
   int cellHeight = 10;
   int cellSize = 10;
-  gridDisplay = new GridDisplay(gridWidth, gridHeight, cellWidth, cellHeight);
-  gridDisplay.setGraphicsElement(createGraphics(gridDisplay.getWidth(), gridDisplay.getHeight(), JAVA2D));
+  int buttonHeight = 25;
 
+  // make a display with a grid that takes up 70 percent of the main display 
+  gridDisplay = new GridDisplay(this, gridWidth, gridHeight, cellWidth, cellHeight, 0, 0);
   // make a display that has width 30 percent of the main display
-  controlsDisplay = new ControlsDisplay(gridWidth, int(width*0.30), height);
-  controlsDisplay.setGraphicsElement(createGraphics(controlsDisplay.getWidth(), controlsDisplay.getHeight(), JAVA2D));
+  controlsDisplay = new ControlsDisplay(this, int(width*0.30), height, gridWidth, 0);
 
-  mainDisplay = new MainDisplay();
+  //@TODO: Implement command pattern to set a custom command for each button
+  setStartPositionButton = new Button(this, "Select Start Position", controlsDisplay, (int)(controlsDisplay.getWidth()*0.9), buttonHeight, 30);
+  setEndPositionButton = new Button(this, "Select End Position", controlsDisplay, (int)(controlsDisplay.getWidth()*0.9), buttonHeight, 65);
+
+  mainDisplay = new MainDisplay(width, height, 0, 0);
   keyboard = new Keyboard();
+
+  controlsDisplay.addSubComponent((IDisplayComponent)setStartPositionButton);
+  controlsDisplay.addSubComponent((IDisplayComponent)setEndPositionButton);
 
   mainDisplay.addSubComponent((IDisplayComponent)gridDisplay);
   mainDisplay.addSubComponent((IDisplayComponent)controlsDisplay);
@@ -100,4 +109,8 @@ void changeStrategy(ISearchStrategy strategy) {
 
 boolean search(int startX, int startY, int endX, int endY) {
   return searchStrategy.search(gridDisplay.getGrid(), startX, startY, endX, endY);
+}
+
+public PApplet getMain() {
+  return this;
 }

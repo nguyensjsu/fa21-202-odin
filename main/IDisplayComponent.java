@@ -5,7 +5,11 @@ public interface IDisplayComponent {
     void addSubComponent(IDisplayComponent obj);
     void setGraphicsElement(PGraphics graphics);
     PGraphics getGraphicsElement();
-    void draw() ;
+    int getMouseX();
+    int getMouseY();
+    int getWidth();
+    int getHeight();
+    void draw();
     String name();
 
 }

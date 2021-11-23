@@ -6,8 +6,13 @@ public class MainDisplay implements IDisplayComponent, IKeyboardObserver {
     
     IClickEventHandler chain;
     ArrayList<IDisplayComponent> components;
+    int width, height, mouseX, mouseY;
 
-    public MainDisplay() {
+    public MainDisplay(int width, int height, int mouseX, int mouseY) {
+        this.mouseX = mouseX;
+        this.mouseY = mouseY;
+        this.width = width;
+        this.height = height;
         components = new ArrayList<IDisplayComponent>();
     }
 
@@ -28,6 +33,11 @@ public class MainDisplay implements IDisplayComponent, IKeyboardObserver {
             prev.setNext( (IClickEventHandler) c ) ;
         }
     }
+
+    public int getWidth() { return width; }
+    public int getHeight() { return height; }
+    public int getMouseX() {return mouseX;}
+    public int getMouseY() {return mouseY;}
 
     public String name() {
         return "";
