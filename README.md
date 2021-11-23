@@ -23,6 +23,11 @@
 - Demo Video:
 - Extra Credit Agile Video: <We doing this?>
 
+## Setup
+
+- [Processing](https://processing.org/) is required to run the project
+- Ensure you install the `g4p` library in Processing that's required for some GUI components
+
 ## Meeting Notes
 
 #### November 14th, 2021
