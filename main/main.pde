@@ -26,6 +26,9 @@ ISearchStrategy searchStrategy;
 
 Button setStartPositionButton;
 Button setEndPositionButton;
+Button clearGridButton;
+
+Label controlsLabel;
 
 void setup() {
   size (displayWidth, displayHeight);
@@ -43,14 +46,18 @@ void setup() {
   controlsDisplay = new ControlsDisplay(this, int(width*0.30), height, gridWidth, 0);
 
   //@TODO: Implement command pattern to set a custom command for each button
-  setStartPositionButton = new Button(this, "Select Start Position", controlsDisplay, (int)(controlsDisplay.getWidth()*0.9), buttonHeight, 30);
-  setEndPositionButton = new Button(this, "Select End Position", controlsDisplay, (int)(controlsDisplay.getWidth()*0.9), buttonHeight, 65);
+  controlsLabel = new Label(this, "Controls Panel", controlsDisplay, 30, ControlsDisplay.CENTER);
+  setStartPositionButton = new Button(this, "Start", controlsDisplay, (int)(controlsDisplay.getWidth()*0.47), buttonHeight, 40, ControlsDisplay.LEFT);
+  setEndPositionButton = new Button(this, "Stop", controlsDisplay, (int)(controlsDisplay.getWidth()*0.47), buttonHeight, 40, ControlsDisplay.RIGHT);
+  clearGridButton = new Button(this, "Clear Grid", controlsDisplay, (int)(controlsDisplay.getWidth()*0.95), buttonHeight, 67, ControlsDisplay.LEFT);
 
   mainDisplay = new MainDisplay(width, height, 0, 0);
   keyboard = new Keyboard();
 
+  controlsDisplay.addSubComponent((IDisplayComponent)controlsLabel);
   controlsDisplay.addSubComponent((IDisplayComponent)setStartPositionButton);
   controlsDisplay.addSubComponent((IDisplayComponent)setEndPositionButton);
+  controlsDisplay.addSubComponent((IDisplayComponent)clearGridButton);
 
   mainDisplay.addSubComponent((IDisplayComponent)gridDisplay);
   mainDisplay.addSubComponent((IDisplayComponent)controlsDisplay);

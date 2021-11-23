@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class ControlsDisplay implements IDisplayComponent, IClickEventHandler {
 
+    // offset modifiers to position elements inside the control panel
+    public static double LEFT = 0.0;
+    public static double CENTER = 0.5;
+    public static double RIGHT = 0.9;
+
     IClickEventHandler chain;
     IClickEventHandler subChain;
 
