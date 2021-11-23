@@ -64,7 +64,7 @@ void setup() {
 
 void draw() {
 
-  // draw the grid and the control panel on the main display
+  // @Todo: move these image calls to their respective element's draw function
   image(gridDisplay.getGraphicsElement(), 0, 0, gridDisplay.getWidth(), gridDisplay.getHeight());
   image(controlsDisplay.getGraphicsElement(), gridDisplay.getWidth(), 0, controlsDisplay.getWidth(), controlsDisplay.getHeight());
 
