@@ -28,7 +28,13 @@ Button setStartPositionButton;
 Button setEndPositionButton;
 Button clearGridButton;
 
+Button selectBFSButton;
+Button selectDFSButton;
+Button selectDijkstraButton;
+
 Label controlsLabel;
+Label searchAlgorithmLabel;
+Label currentAlgoLabel;
 
 void setup() {
   size (displayWidth, displayHeight);
@@ -41,9 +47,10 @@ void setup() {
   int cellSize = 10;
 
   int buttonHeight = 25;
-  int label_y_position = 30;
+  int label_y_position = 20;
   int button_row_1_y_position = 40;
   int button_row_2_y_position = 67;
+  int algorithms_y_label = 140;
 
   // make a display with a grid that takes up 70 percent of the main display 
   gridDisplay = new GridDisplay(this, gridWidth, gridHeight, cellWidth, cellHeight, 0, 0);
@@ -52,9 +59,17 @@ void setup() {
 
   //@TODO: Implement command pattern to set a custom command for each button
   controlsLabel = new Label(this, "Controls Panel", controlsDisplay, label_y_position, ControlsDisplay.CENTER);
+
   setStartPositionButton = new Button(this, "Start", controlsDisplay, Button.SIZE_HALF, buttonHeight, button_row_1_y_position, ControlsDisplay.LEFT);
   setEndPositionButton = new Button(this, "Stop", controlsDisplay, Button.SIZE_HALF, buttonHeight, button_row_1_y_position, ControlsDisplay.RIGHT);
   clearGridButton = new Button(this, "Clear Grid", controlsDisplay, Button.SIZE_FULL, buttonHeight, button_row_2_y_position, ControlsDisplay.LEFT);
+
+  currentAlgoLabel = new Label(this, "Algorithm: ", controlsDisplay, algorithms_y_label, ControlsDisplay.LEFT);
+  searchAlgorithmLabel = new Label(this, "BFS", controlsDisplay, algorithms_y_label, ControlsDisplay.CENTER);
+
+  selectBFSButton = new Button(this, "BFS", controlsDisplay, Button.SIZE_HALF, buttonHeight, 150, ControlsDisplay.LEFT);
+  selectDFSButton = new Button(this, "DFS", controlsDisplay, Button.SIZE_HALF, buttonHeight, 150, ControlsDisplay.RIGHT);
+  selectDijkstraButton = new Button(this, "Dijkstra's", controlsDisplay, Button.SIZE_HALF, buttonHeight, 177, ControlsDisplay.LEFT);
 
   mainDisplay = new MainDisplay(width, height, 0, 0);
   keyboard = new Keyboard();
@@ -63,6 +78,11 @@ void setup() {
   controlsDisplay.addSubComponent((IDisplayComponent)setStartPositionButton);
   controlsDisplay.addSubComponent((IDisplayComponent)setEndPositionButton);
   controlsDisplay.addSubComponent((IDisplayComponent)clearGridButton);
+  controlsDisplay.addSubComponent((IDisplayComponent)currentAlgoLabel);
+  controlsDisplay.addSubComponent((IDisplayComponent)searchAlgorithmLabel);
+  controlsDisplay.addSubComponent((IDisplayComponent)selectBFSButton);
+  controlsDisplay.addSubComponent((IDisplayComponent)selectDFSButton);
+  controlsDisplay.addSubComponent((IDisplayComponent)selectDijkstraButton);
 
   mainDisplay.addSubComponent((IDisplayComponent)gridDisplay);
   mainDisplay.addSubComponent((IDisplayComponent)controlsDisplay);
