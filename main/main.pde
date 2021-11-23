@@ -32,6 +32,7 @@ Label controlsLabel;
 
 void setup() {
   size (displayWidth, displayHeight);
+  pixelDensity(2);
   
   int gridWidth = int(width*0.70);
   int gridHeight = height;
