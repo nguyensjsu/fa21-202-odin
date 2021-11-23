@@ -123,6 +123,3 @@ boolean search(int startX, int startY, int endX, int endY) {
   return searchStrategy.search(gridDisplay.getGrid(), startX, startY, endX, endY);
 }
 
-public PApplet getMain() {
-  return this;
-}
