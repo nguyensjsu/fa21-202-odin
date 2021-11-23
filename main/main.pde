@@ -39,7 +39,11 @@ void setup() {
   int cellWidth = 10;
   int cellHeight = 10;
   int cellSize = 10;
+
   int buttonHeight = 25;
+  int label_y_position = 30;
+  int button_row_1_y_position = 40;
+  int button_row_2_y_position = 67;
 
   // make a display with a grid that takes up 70 percent of the main display 
   gridDisplay = new GridDisplay(this, gridWidth, gridHeight, cellWidth, cellHeight, 0, 0);
@@ -47,10 +51,10 @@ void setup() {
   controlsDisplay = new ControlsDisplay(this, int(width*0.30), height, gridWidth, 0);
 
   //@TODO: Implement command pattern to set a custom command for each button
-  controlsLabel = new Label(this, "Controls Panel", controlsDisplay, 30, ControlsDisplay.CENTER);
-  setStartPositionButton = new Button(this, "Start", controlsDisplay, (int)(controlsDisplay.getWidth()*0.47), buttonHeight, 40, ControlsDisplay.LEFT);
-  setEndPositionButton = new Button(this, "Stop", controlsDisplay, (int)(controlsDisplay.getWidth()*0.47), buttonHeight, 40, ControlsDisplay.RIGHT);
-  clearGridButton = new Button(this, "Clear Grid", controlsDisplay, (int)(controlsDisplay.getWidth()*0.95), buttonHeight, 67, ControlsDisplay.LEFT);
+  controlsLabel = new Label(this, "Controls Panel", controlsDisplay, label_y_position, ControlsDisplay.CENTER);
+  setStartPositionButton = new Button(this, "Start", controlsDisplay, Button.SIZE_HALF, buttonHeight, button_row_1_y_position, ControlsDisplay.LEFT);
+  setEndPositionButton = new Button(this, "Stop", controlsDisplay, Button.SIZE_HALF, buttonHeight, button_row_1_y_position, ControlsDisplay.RIGHT);
+  clearGridButton = new Button(this, "Clear Grid", controlsDisplay, Button.SIZE_FULL, buttonHeight, button_row_2_y_position, ControlsDisplay.LEFT);
 
   mainDisplay = new MainDisplay(width, height, 0, 0);
   keyboard = new Keyboard();

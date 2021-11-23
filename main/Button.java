@@ -10,6 +10,9 @@ public class Button implements IDisplayComponent, IClickEventHandler {
     private IDisplayComponent parent;
     private PApplet main;
 
+    public static double SIZE_HALF = 0.47;
+    public static double SIZE_FULL = 0.945;
+
     private int hover_r = 126;
     private int hover_g = 255;
     private int hover_b = 255;
@@ -24,16 +27,16 @@ public class Button implements IDisplayComponent, IClickEventHandler {
 
     private double position;
 
-    public Button(PApplet main, String name, IDisplayComponent parent, int width, int height, int yCord, double position) {
+    public Button(PApplet main, String name, IDisplayComponent parent, double sizeModifier, int height, int yCord, double position) {
         this.name = name;
-        this.width = width;
-        this.height = height;
-
         this.parent = parent;
-        this.mouseX = parent.getMouseX() + ((int)((parent.getWidth() - width)*position));
+
+        this.width = (int)(this.parent.getWidth()*sizeModifier);
+        this.height = height;
+        this.mouseX = parent.getMouseX() + ((int)((this.parent.getWidth() - this.width)*position));
         this.mouseY = yCord;
 
-        this.graphics = parent.getGraphicsElement();
+        this.graphics = this.parent.getGraphicsElement();
         this.main = main;
         this.position = position;
     }
