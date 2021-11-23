@@ -79,9 +79,9 @@ void draw() {
       searchState = false;
       interval = 0;
     }
-
-    mainDisplay.draw();
   }
+  // draw main display and all child displays
+  mainDisplay.draw();
 
 }
 
