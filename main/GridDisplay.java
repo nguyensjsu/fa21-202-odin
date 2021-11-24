@@ -43,6 +43,8 @@ public class GridDisplay implements IDisplayComponent, IClickEventHandler {
     public int getCellHeight() {return cellHeight;}
 
     public void draw() {
+        main.image(graphics, 0, 0, width, height);
+
         //@TODO: could probably use some refactoring
         graphics.beginDraw();
 

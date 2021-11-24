@@ -23,6 +23,7 @@ public class ControlsDisplay implements IDisplayComponent, IClickEventHandler {
         this.mouseY = mouseY;
         this.width = width;
         this.height = height;
+        this.main = main;
         components = new ArrayList<IDisplayComponent>();
 
         setGraphicsElement(main.createGraphics(width, height, main.JAVA2D));
@@ -83,8 +84,8 @@ public class ControlsDisplay implements IDisplayComponent, IClickEventHandler {
 
     @Override
     public void draw() {
+        main.image(graphics, mouseX, 0, width, height);
         for (IDisplayComponent obj: components)
             obj.draw();
-        // draw sub components here
     }
 }
