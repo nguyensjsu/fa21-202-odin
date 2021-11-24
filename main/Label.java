@@ -1,4 +1,3 @@
-// import g4p_controls.GButton;
 import processing.core.PGraphics;
 import processing.core.PApplet;
 
