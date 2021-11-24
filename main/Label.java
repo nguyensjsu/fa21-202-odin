@@ -3,11 +3,6 @@ import processing.core.PApplet;
 
 public class Label implements IDisplayComponent, IClickEventHandler {
 
-    // offset modifiers to position button
-    public static double LEFT = 0.0;
-    public static double CENTER = 0.5;
-    public static double RIGHT = 0.9;
-    
     private int label_r = 255;
     private int label_g = 255;
     private int label_b = 255;
@@ -19,7 +14,7 @@ public class Label implements IDisplayComponent, IClickEventHandler {
     private PApplet main;
     
     private static final int y_offset = 10;
-    private static final int x_offset = 10;
+    private static final int x_offset = 50;
 
     IClickEventHandler chain;
 
@@ -30,9 +25,10 @@ public class Label implements IDisplayComponent, IClickEventHandler {
         this.parent = parent;
         this.graphics = parent.getGraphicsElement();
         this.main = main;
-        this.width = (int)main.textWidth(name) + x_offset;
+        this.width = (int)main.textWidth(name);
+        if (this.width > x_offset) this.width -= x_offset;
         this.height = (int)(main.textAscent() + main.textAscent());
-        this.mouseX = parent.getMouseX() + ((int)((parent.getWidth() - this.width)*position));
+        this.mouseX = parent.getMouseX() + ((int)((parent.getWidth() - this.width)*position)) ;
         this.mouseY = yCord;
         this.position = position;
     }
@@ -99,7 +95,7 @@ public class Label implements IDisplayComponent, IClickEventHandler {
     @Override
     public void click(int x, int y) {
         if (mouseInBounds(x, y)) {
-            System.out.println("Label clicked..");
+            System.out.println(name+" Label clicked..");
         }else {
             if (chain != null) chain.click(x, y);
         }
