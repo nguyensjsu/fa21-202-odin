@@ -106,10 +106,6 @@ void setup() {
 
 void draw() {
 
-  // @Todo: move these image calls to their respective element's draw function
-  // image(gridDisplay.getGraphicsElement(), 0, 0, gridDisplay.getWidth(), gridDisplay.getHeight());
-  // image(controlsDisplay.getGraphicsElement(), gridDisplay.getWidth(), 0, controlsDisplay.getWidth(), controlsDisplay.getHeight());
-
   // @Todo: Need to refactor this to make use of something like the state pattern
   if (millis()-lastRecordedTime > interval) {
     lastRecordedTime = millis();
