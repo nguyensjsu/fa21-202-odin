@@ -59,7 +59,7 @@ void setup() {
 
   //searchStrategy = new DepthFirstSearch();
   //searchStrategy = new BreadthFirstSearch();
-  searchStrategy = new Dijkstra();
+  searchStrategy = new DijkstraSearch();
 
 }
 
