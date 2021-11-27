@@ -3,7 +3,6 @@ import java.util.ArrayList;
 int cellSize = 10;
 
 // Keep track if we are in search state
-boolean searchState = false;
 boolean found = false;
 
 // Variables for timer
@@ -104,9 +103,7 @@ void setup() {
 
   keyboard.attach((IKeyboardObserver) mainDisplay);
 
-  //searchStrategy = new DepthFirstSearch();
-  searchStrategy = new BreadthFirstSearch();
-  //searchStrategy = new DijkstraSearch();
+  searchStrategy = algStateMachine.getCurrentStrategy();
 
 }
 
