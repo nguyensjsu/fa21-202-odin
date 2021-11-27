@@ -99,8 +99,9 @@ void setup() {
 
   keyboard.attach((IKeyboardObserver) mainDisplay);
 
-  // searchStrategy = new DepthFirstSearch();
-  searchStrategy = new BreadthFirstSearch();
+  //searchStrategy = new DepthFirstSearch();
+  //searchStrategy = new BreadthFirstSearch();
+  searchStrategy = new Dijkstra();
 
 }
 
