@@ -78,7 +78,6 @@ void setup() {
   setStartPositionButton = new Button(this, "Set Start Position", controlsDisplay, Button.SIZE_HALF, buttonHeight, 245, ControlsDisplay.RIGHT);
   setEndPositionButton = new Button(this, "Set End Position", controlsDisplay, Button.SIZE_HALF, buttonHeight, 245, ControlsDisplay.LEFT);
 
-
   mainDisplay = new MainDisplay(width, height, 0, 0);
   keyboard = new Keyboard();
 
@@ -100,8 +99,8 @@ void setup() {
   keyboard.attach((IKeyboardObserver) mainDisplay);
 
   //searchStrategy = new DepthFirstSearch();
-  //searchStrategy = new BreadthFirstSearch();
-  searchStrategy = new Dijkstra();
+  searchStrategy = new BreadthFirstSearch();
+  //searchStrategy = new DijkstraSearch();
 
 }
 

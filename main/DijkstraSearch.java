@@ -1,7 +1,7 @@
 import java.awt.Point;
 import java.util.*;
 
-public class Dijkstra implements ISearchStrategy {
+public class DijkstraSearch implements ISearchStrategy {
 
     private static Stack<Point> stack = new Stack<>();
     private static Set<String> visited = new HashSet<>();
