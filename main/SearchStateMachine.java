@@ -5,8 +5,9 @@ public class SearchStateMachine {
     private ISearchState currentState;
 
     public SearchStateMachine() {
-        stopped = new ISearchState() {};
-        running = new ISearchState() {};
+        stopped = new StoppedSearchState();
+        running = new RunningSearchState();
+        currentState = stopped;
     }
 
     public void setStateStopped() {

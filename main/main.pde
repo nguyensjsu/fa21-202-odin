@@ -38,6 +38,9 @@ Label currentAlgoLabel;
 Button setStartPositionButton;
 Button setEndPositionButton;
 
+AlgorithmStateMachine algStateMachine;
+SearchStateMachine searchStateMachine;
+
 void setup() {
   size (displayWidth, displayHeight);
   pixelDensity(2);
@@ -53,6 +56,9 @@ void setup() {
   int button_row_1_y_position = 40;
   int button_row_2_y_position = 67;
   int algorithms_y_label = 140;
+
+  algStateMachine = new AlgorithmStateMachine();
+  searchStateMachine = new SearchStateMachine();
 
   // make a display with a grid that takes up 70 percent of the main display 
   gridDisplay = new GridDisplay(this, gridWidth, gridHeight, cellWidth, cellHeight, 0, 0);
@@ -110,11 +116,11 @@ void draw() {
   if (millis()-lastRecordedTime > interval) {
     lastRecordedTime = millis();
     
-    if (searchState) {
+    if (searchStateMachine.getCurrentState() instanceof RunningSearchState) {
       found = search(0, 0, ((gridDisplay.getWidth())/gridDisplay.getWidth())-10, (gridDisplay.getHeight()/gridDisplay.getHeight())-10);
     }
     if (found) {
-      searchState = false;
+      searchStateMachine.setStateStopped();
       interval = 0;
     }
   }
@@ -136,7 +142,7 @@ void mouseClicked() {
 }
 
 void keyPressed() {
-  searchState = true;
+  searchStateMachine.setStateRunning();
   interval = 50;
   keyboard.keyPressEvent(key);
 }

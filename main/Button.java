@@ -27,7 +27,6 @@ public class Button implements IDisplayComponent, IClickEventHandler {
     IClickEventHandler chain;
 
     private double position;
-    private Function clickFunction;
 
     public Button(PApplet main, String name, IDisplayComponent parent, double sizeModifier, int height, int yCord, double position) {
         this.name = name;
@@ -111,7 +110,6 @@ public class Button implements IDisplayComponent, IClickEventHandler {
     public void click(int x, int y) {
         if (mouseInBounds(x, y)) {
             drawButton(0, 0, 0);
-            clickFunction.apply(null);
         }else {
             if (chain != null) chain.click(x, y);
         }
