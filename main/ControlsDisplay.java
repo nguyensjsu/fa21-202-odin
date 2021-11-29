@@ -4,6 +4,11 @@ import java.util.ArrayList;
 
 public class ControlsDisplay implements IDisplayComponent, IClickEventHandler {
 
+    // offset modifiers to position elements inside the control panel
+    public static double LEFT = 0.0;
+    public static double CENTER = 0.5;
+    public static double RIGHT = 0.9;
+
     IClickEventHandler chain;
     IClickEventHandler subChain;
 
@@ -18,6 +23,7 @@ public class ControlsDisplay implements IDisplayComponent, IClickEventHandler {
         this.mouseY = mouseY;
         this.width = width;
         this.height = height;
+        this.main = main;
         components = new ArrayList<IDisplayComponent>();
 
         setGraphicsElement(main.createGraphics(width, height, main.JAVA2D));
@@ -78,8 +84,11 @@ public class ControlsDisplay implements IDisplayComponent, IClickEventHandler {
 
     @Override
     public void draw() {
+        main.image(graphics, mouseX, 0, width, height);
+        graphics.beginDraw();
+        graphics.background(0);
+        graphics.endDraw();
         for (IDisplayComponent obj: components)
             obj.draw();
-        // draw sub components here
     }
 }

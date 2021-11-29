@@ -1,48 +1,36 @@
-// import g4p_controls.GButton;
 import processing.core.PGraphics;
 import processing.core.PApplet;
-import java.util.function.Function;
 
-public class Button implements IDisplayComponent, IClickEventHandler {
+public class Label implements IDisplayComponent, IClickEventHandler {
+
+    private int label_r = 255;
+    private int label_g = 255;
+    private int label_b = 255;
 
     private String name;
     private int width, height, mouseX, mouseY;
     private PGraphics graphics;
     private IDisplayComponent parent;
     private PApplet main;
-    private IButtonInvoker cmd = new ButtonOption();
-
-    public static double SIZE_HALF = 0.47;
-    public static double SIZE_FULL = 0.945;
-
-    private int hover_r = 126;
-    private int hover_g = 255;
-    private int hover_b = 255;
     
-    private int norm_r = 77;
-    private int norm_g = 208;
-    private int norm_b = 225;
-    
-    private static final int y_offset = 3;
+    private static final int y_offset = 10;
+    private static final int x_offset = 50;
 
     IClickEventHandler chain;
 
     private double position;
 
-    public Button(PApplet main, String name, IDisplayComponent parent, IButtonCommand command, double sizeModifier, int height, int yCord, double position) {
+    public Label(PApplet main, String name, IDisplayComponent parent, int yCord, double position) {
         this.name = name;
         this.parent = parent;
-
-        this.width = (int)(this.parent.getWidth()*sizeModifier);
-        this.height = height;
-        this.mouseX = parent.getMouseX() + ((int)((this.parent.getWidth() - this.width)*position));
-        this.mouseY = yCord;
-
-        this.graphics = this.parent.getGraphicsElement();
-       
+        this.graphics = parent.getGraphicsElement();
         this.main = main;
+        this.width = (int)main.textWidth(name);
+        if (this.width > x_offset) this.width -= x_offset;
+        this.height = (int)(main.textAscent() + main.textAscent());
+        this.mouseX = parent.getMouseX() + ((int)((parent.getWidth() - this.width)*position)) ;
+        this.mouseY = yCord;
         this.position = position;
-        this.cmd.setCommand(command);
     }
 
     @Override
@@ -63,10 +51,7 @@ public class Button implements IDisplayComponent, IClickEventHandler {
 
     @Override
     public void draw() {
-        if (mouseInBounds(main.mouseX, main.mouseY))
-            this.drawButton(hover_r, hover_b, hover_g);
-        else 
-            this.drawButton(norm_r, norm_b, norm_g);
+        drawLabel(label_r, label_g, label_b);
         
     }
 
@@ -91,34 +76,34 @@ public class Button implements IDisplayComponent, IClickEventHandler {
         
     }
 
-    private boolean mouseInBounds(int x, int y) {
-        return (x >= mouseX && x <= mouseX+width && y >= mouseY+y_offset && y <= mouseY+height+y_offset);
+    private boolean mouseInBounds(int x, int y) {    
+        return (x >= mouseX && x <= mouseX+width && y >= mouseY-y_offset && y <= mouseY);
     }
 
-    private void drawButton(int r, int g, int b) {
+    private void drawLabel(int r, int g, int b) {
         int x = (int)((parent.getWidth() - width)*position);
         int y = mouseY;
 
         this.graphics.beginDraw();
         this.graphics.smooth();
-        this.graphics.fill(r, g, b);
-        this.graphics.rect(x, y, width, height);
+        // this.graphics.background(0,x,y);
+        //this.graphics.size(x, y);
         this.graphics.fill(0);
-        this.graphics.text(name, x+10, y+ (int)(height/2 + 5));
+       
+        this.graphics.fill(r, g, b);
+        this.graphics.text(name, x, y);
         this.graphics.endDraw();
     }
 
 
     @Override
     public void click(int x, int y) {
-
+    
         if (mouseInBounds(x, y)) {
-            cmd.invoke();
-        }else {
-
+            System.out.println(name+" Label clicked..");
+        } else {
             if (chain != null) chain.click(x, y);
         }
-        
     }
 
     @Override
@@ -131,4 +116,8 @@ public class Button implements IDisplayComponent, IClickEventHandler {
         return mouseY;
     }    
 
+
+    public void setName(String name) {
+        this.name=name;
+    }
 }

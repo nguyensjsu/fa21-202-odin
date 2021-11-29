@@ -14,4 +14,14 @@ We planned on having another meeting later in the week; however one member was u
 
 
 ## Week 2 (Nov. 18, 2021)
+- Came up with a plan for future work
+- got basic UI (without full functionality)
+- split up work for different algorithms (BFS, DFS, Dijkstra's)
+- discussed plans for different patterns
+    * strategy for different algorithms
+    * chain of responsibility for gui
+    * command for buttons
+
+### XP core value analysis
+There was open communication between meetings on progress people had made, whether planned or unplanned. I did not complete my component by the next planned meeting, so I requested it be postponed by a day. Because of how we had been communicating between meetings, this did not delay everyone else's progress and they were able to continue working.
 
