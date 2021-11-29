@@ -85,11 +85,7 @@ public class Label implements IDisplayComponent, IClickEventHandler {
         int y = mouseY;
 
         this.graphics.beginDraw();
-        this.graphics.smooth();
-        // this.graphics.background(0,x,y);
-        //this.graphics.size(x, y);
-        this.graphics.fill(0);
-       
+        this.graphics.smooth();       
         this.graphics.fill(r, g, b);
         this.graphics.text(name, x, y);
         this.graphics.endDraw();

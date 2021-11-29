@@ -129,7 +129,7 @@ void draw() {
     lastRecordedTime = millis();
     
     if (searchStateMachine.getCurrentState() instanceof RunningSearchState) {
-      found = search(0, 0, ((gridDisplay.getWidth())/gridDisplay.getWidth())-10, (gridDisplay.getHeight()/gridDisplay.getHeight())-10);
+      found = search(gridDisplay.getStartX(), gridDisplay.getStartY(), gridDisplay.getEndX(), gridDisplay.getEndY());
     }
     if (found) {
       searchStateMachine.setStateStopped();
@@ -154,8 +154,6 @@ void mouseClicked() {
 }
 
 void keyPressed() {
-  searchStateMachine.setStateRunning();
-  interval = 50;
   keyboard.keyPressEvent(key);
 }
 
@@ -167,6 +165,14 @@ boolean search(int startX, int startY, int endX, int endY) {
   return searchStrategy.search(gridDisplay.getGrid(), startX, startY, endX, endY);
 }
 
+void startSearch() {
+  searchStateMachine.setStateRunning();
+  interval = 50;
+}
+
+void stopSearch() {
+  searchStateMachine.setStateStopped();
+}
 
 void setupCommands() {
 // setup command for each button
@@ -193,31 +199,33 @@ void setupCommands() {
 
   startCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
-      System.out.println("startCommand called");
+      gridDisplay.stopDrawingWalls();
+      startSearch();
    } 
   });
 
   stopCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
-        System.out.println("stopCommand called");
+        gridDisplay.startDrawingWalls();
+        stopSearch();
    } 
   });
 
   clearGridCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
-       System.out.println("clearGridCommand called");
+       if (gridDisplay != null) gridDisplay.clearGrid();
    } 
   });
 
    setStartCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
-       System.out.println("setStartCommand called");
+       gridDisplay.setStart();
    } 
   });
 
    setEndCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
-       System.out.println("setEndCommand called");
+       gridDisplay.setEnd();
    } 
   });
 
