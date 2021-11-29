@@ -9,7 +9,7 @@ public class AlgorithmStateMachine {
         dfs = new DepthFirstSearch();
         bfs = new BreadthFirstSearch();
         dijkstra = new DijkstraSearch();
-        currentAlgorithm = bfs;
+        currentAlgorithm = dijkstra;
     }
 
     public void setAlgorithm(SearchAlgorithm alg) {
