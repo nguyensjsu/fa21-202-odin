@@ -6,6 +6,11 @@ public class BreadthFirstSearch implements ISearchStrategy {
     private static Queue<Point> queue = new LinkedList<Point>();
     private static HashSet<String> visited = new HashSet<String>();
 
+    public void reset() {
+        visited = new HashSet<String>();
+        queue = new LinkedList<Point>();
+    }
+
     /**
      * Searches the grid using depth first search
      * @param grid  int[][] indicating the grid to search
