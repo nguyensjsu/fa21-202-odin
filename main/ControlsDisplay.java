@@ -85,6 +85,9 @@ public class ControlsDisplay implements IDisplayComponent, IClickEventHandler {
     @Override
     public void draw() {
         main.image(graphics, mouseX, 0, width, height);
+        graphics.beginDraw();
+        graphics.background(0);
+        graphics.endDraw();
         for (IDisplayComponent obj: components)
             obj.draw();
     }
