@@ -43,10 +43,11 @@ public class DijkstraSearch implements ISearchStrategy {
                 if (grid[n.x][n.y] != 0)
                     continue;
                 int c = costs.get(co);
-                if (costs.get(n.x+","+n.y) > c + 1) {
-                    costs.put(n.x+","+n.y, c + 1);
-                    if (c + 1 < min) {
-                        min = c + 1;
+                int dis = calculateDistance(n.x, n.y, startX, startY);
+                if (costs.get(n.x+","+n.y) > dis) {
+                    costs.put(n.x+","+n.y, dis);
+                    if (dis < min) {
+                        min = dis;
                         nextPoint = n;
                     }
                 }
@@ -56,5 +57,8 @@ public class DijkstraSearch implements ISearchStrategy {
         return false;
     }
 
+    private int calculateDistance(int x1, int y1, int x2, int y2) {
+        return Math.abs(x2-x1) + Math.abs(y2-y1);        
+    }
 
 }
