@@ -86,6 +86,10 @@ public class Label implements IDisplayComponent, IClickEventHandler {
 
         this.graphics.beginDraw();
         this.graphics.smooth();
+        // this.graphics.background(0,x,y);
+        //this.graphics.size(x, y);
+        this.graphics.fill(0);
+       
         this.graphics.fill(r, g, b);
         this.graphics.text(name, x, y);
         this.graphics.endDraw();
@@ -94,12 +98,12 @@ public class Label implements IDisplayComponent, IClickEventHandler {
 
     @Override
     public void click(int x, int y) {
+    
         if (mouseInBounds(x, y)) {
             System.out.println(name+" Label clicked..");
-        }else {
+        } else {
             if (chain != null) chain.click(x, y);
         }
-        
     }
 
     @Override
@@ -111,4 +115,9 @@ public class Label implements IDisplayComponent, IClickEventHandler {
     public int getMouseY() {
         return mouseY;
     }    
+
+
+    public void setName(String name) {
+        this.name=name;
+    }
 }

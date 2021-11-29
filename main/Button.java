@@ -10,6 +10,7 @@ public class Button implements IDisplayComponent, IClickEventHandler {
     private PGraphics graphics;
     private IDisplayComponent parent;
     private PApplet main;
+    private IButtonInvoker cmd = new ButtonOption();
 
     public static double SIZE_HALF = 0.47;
     public static double SIZE_FULL = 0.945;
@@ -28,7 +29,7 @@ public class Button implements IDisplayComponent, IClickEventHandler {
 
     private double position;
 
-    public Button(PApplet main, String name, IDisplayComponent parent, double sizeModifier, int height, int yCord, double position) {
+    public Button(PApplet main, String name, IDisplayComponent parent, IButtonCommand command, double sizeModifier, int height, int yCord, double position) {
         this.name = name;
         this.parent = parent;
 
@@ -38,8 +39,10 @@ public class Button implements IDisplayComponent, IClickEventHandler {
         this.mouseY = yCord;
 
         this.graphics = this.parent.getGraphicsElement();
+       
         this.main = main;
         this.position = position;
+        this.cmd.setCommand(command);
     }
 
     @Override
@@ -108,9 +111,11 @@ public class Button implements IDisplayComponent, IClickEventHandler {
 
     @Override
     public void click(int x, int y) {
+
         if (mouseInBounds(x, y)) {
-            drawButton(0, 0, 0);
+            cmd.invoke();
         }else {
+
             if (chain != null) chain.click(x, y);
         }
         

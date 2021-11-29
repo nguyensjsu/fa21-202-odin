@@ -15,12 +15,15 @@ public class AlgorithmStateMachine {
     public void setAlgorithm(SearchAlgorithm alg) {
         switch (alg) {
             case BFS:
+            System.out.println("check bfs====>");
                 currentAlgorithm = bfs;
                 break;
             case DFS:
+            System.out.println("check dfs====>");
                 currentAlgorithm = dfs;
                 break;
             case Dijkstra:
+            System.out.println("check Dijkstra====>");
                 currentAlgorithm = dijkstra;
                 break;
         }

@@ -30,6 +30,7 @@ Button selectBFSButton;
 Button selectDFSButton;
 Button selectDijkstraButton;
 
+
 Label controlsLabel;
 Label searchAlgorithmLabel;
 Label currentAlgoLabel;
@@ -39,6 +40,15 @@ Button setEndPositionButton;
 
 AlgorithmStateMachine algStateMachine;
 SearchStateMachine searchStateMachine;
+
+IButtonCommand startCommand = new ButtonCommand();
+IButtonCommand stopCommand = new ButtonCommand();
+IButtonCommand clearGridCommand = new ButtonCommand();
+IButtonCommand bfsCommand = new ButtonCommand();
+IButtonCommand dfsCommand = new ButtonCommand();
+IButtonCommand dijkstraCommand = new ButtonCommand();
+IButtonCommand setStartCommand = new ButtonCommand();
+IButtonCommand setEndCommand = new ButtonCommand();
 
 void setup() {
   size (displayWidth, displayHeight);
@@ -56,8 +66,12 @@ void setup() {
   int button_row_2_y_position = 67;
   int algorithms_y_label = 140;
 
-  algStateMachine = new AlgorithmStateMachine();
+  // simpification call for commands setup
+  setupCommands();
+  
   searchStateMachine = new SearchStateMachine();
+
+  algStateMachine = new AlgorithmStateMachine();
 
   // make a display with a grid that takes up 70 percent of the main display 
   gridDisplay = new GridDisplay(this, gridWidth, gridHeight, cellWidth, cellHeight, 0, 0);
@@ -67,21 +81,21 @@ void setup() {
   //@TODO: Implement command pattern to set a custom command for each button
   controlsLabel = new Label(this, "Controls Panel", controlsDisplay, label_y_position, ControlsDisplay.CENTER);
 
-  startSearchButton = new Button(this, "Start", controlsDisplay, Button.SIZE_HALF, buttonHeight, button_row_1_y_position, ControlsDisplay.LEFT);
-  endSearchButton = new Button(this, "Stop", controlsDisplay, Button.SIZE_HALF, buttonHeight, button_row_1_y_position, ControlsDisplay.RIGHT);
-  clearGridButton = new Button(this, "Clear Grid", controlsDisplay, Button.SIZE_FULL, buttonHeight, button_row_2_y_position, ControlsDisplay.LEFT);
+  startSearchButton = new Button(this, "Start", controlsDisplay, startCommand, Button.SIZE_HALF, buttonHeight, button_row_1_y_position, ControlsDisplay.LEFT);
+  endSearchButton = new Button(this, "Stop", controlsDisplay, stopCommand, Button.SIZE_HALF, buttonHeight, button_row_1_y_position, ControlsDisplay.RIGHT);
+  clearGridButton = new Button(this, "Clear Grid", controlsDisplay, clearGridCommand, Button.SIZE_FULL, buttonHeight, button_row_2_y_position, ControlsDisplay.LEFT);
 
   currentAlgoLabel = new Label(this, "Algorithm: ", controlsDisplay, algorithms_y_label, ControlsDisplay.LEFT);
 
   // This label should reflect which search algorithm is currently set
   searchAlgorithmLabel = new Label(this, "BFS", controlsDisplay, algorithms_y_label, ControlsDisplay.CENTER);
 
-  selectBFSButton = new Button(this, "BFS", controlsDisplay, Button.SIZE_HALF, buttonHeight, 150, ControlsDisplay.LEFT);
-  selectDFSButton = new Button(this, "DFS", controlsDisplay, Button.SIZE_HALF, buttonHeight, 150, ControlsDisplay.RIGHT);
-  selectDijkstraButton = new Button(this, "Dijkstra's", controlsDisplay, Button.SIZE_HALF, buttonHeight, 177, ControlsDisplay.LEFT);
+  selectBFSButton = new Button(this, "BFS", controlsDisplay, bfsCommand, Button.SIZE_HALF, buttonHeight, 150, ControlsDisplay.LEFT);
+  selectDFSButton = new Button(this, "DFS", controlsDisplay, dfsCommand, Button.SIZE_HALF, buttonHeight, 150, ControlsDisplay.RIGHT);
+  selectDijkstraButton = new Button(this, "Dijkstra's", controlsDisplay, dijkstraCommand, Button.SIZE_HALF, buttonHeight, 177, ControlsDisplay.LEFT);
 
-  setStartPositionButton = new Button(this, "Set Start Position", controlsDisplay, Button.SIZE_HALF, buttonHeight, 245, ControlsDisplay.RIGHT);
-  setEndPositionButton = new Button(this, "Set End Position", controlsDisplay, Button.SIZE_HALF, buttonHeight, 245, ControlsDisplay.LEFT);
+  setStartPositionButton = new Button(this, "Set Start Position", controlsDisplay, setStartCommand, Button.SIZE_HALF, buttonHeight, 245, ControlsDisplay.RIGHT);
+  setEndPositionButton = new Button(this, "Set End Position", controlsDisplay, setEndCommand, Button.SIZE_HALF, buttonHeight, 245, ControlsDisplay.LEFT);
 
   mainDisplay = new MainDisplay(width, height, 0, 0);
   keyboard = new Keyboard();
@@ -106,6 +120,7 @@ void setup() {
   searchStrategy = algStateMachine.getCurrentStrategy();
 
 }
+
 
 void draw() {
 
@@ -152,3 +167,58 @@ boolean search(int startX, int startY, int endX, int endY) {
   return searchStrategy.search(gridDisplay.getGrid(), startX, startY, endX, endY);
 }
 
+
+void setupCommands() {
+// setup command for each button
+  bfsCommand.setReceiver( new IButtonReceiver() {
+   public void doAction(){
+      algStateMachine.setAlgorithm(SearchAlgorithm.BFS);
+      searchAlgorithmLabel.setName("BFS");
+   } 
+  });
+
+  dfsCommand.setReceiver( new IButtonReceiver() {
+   public void doAction(){
+      algStateMachine.setAlgorithm(SearchAlgorithm.DFS);
+      searchAlgorithmLabel.setName("DFS");
+   } 
+  });
+
+  dijkstraCommand.setReceiver( new IButtonReceiver() {
+   public void doAction(){
+      algStateMachine.setAlgorithm(SearchAlgorithm.Dijkstra);
+      searchAlgorithmLabel.setName("Dijkstra");
+   } 
+  });
+
+  startCommand.setReceiver( new IButtonReceiver() {
+   public void doAction(){
+      System.out.println("startCommand called");
+   } 
+  });
+
+  stopCommand.setReceiver( new IButtonReceiver() {
+   public void doAction(){
+        System.out.println("stopCommand called");
+   } 
+  });
+
+  clearGridCommand.setReceiver( new IButtonReceiver() {
+   public void doAction(){
+       System.out.println("clearGridCommand called");
+   } 
+  });
+
+   setStartCommand.setReceiver( new IButtonReceiver() {
+   public void doAction(){
+       System.out.println("setStartCommand called");
+   } 
+  });
+
+   setEndCommand.setReceiver( new IButtonReceiver() {
+   public void doAction(){
+       System.out.println("setEndCommand called");
+   } 
+  });
+
+}
