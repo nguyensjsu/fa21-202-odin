@@ -184,22 +184,34 @@ void setupCommands() {
 // setup command for each button
   bfsCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
+    if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState)) {
+      gridDisplay.clearGrid();
+      resetSearch();
       algStateMachine.setAlgorithm(SearchAlgorithm.BFS);
       searchAlgorithmLabel.setName("BFS");
+    }
    } 
   });
 
   dfsCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
-      algStateMachine.setAlgorithm(SearchAlgorithm.DFS);
-      searchAlgorithmLabel.setName("DFS");
+      if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState)) {
+        gridDisplay.clearGrid();
+        resetSearch();
+        algStateMachine.setAlgorithm(SearchAlgorithm.DFS);
+        searchAlgorithmLabel.setName("DFS");
+      }
    } 
   });
 
   dijkstraCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
-      algStateMachine.setAlgorithm(SearchAlgorithm.Dijkstra);
-      searchAlgorithmLabel.setName("Dijkstra");
+       if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState)) {
+          gridDisplay.clearGrid();
+          resetSearch();
+          algStateMachine.setAlgorithm(SearchAlgorithm.Dijkstra);
+          searchAlgorithmLabel.setName("Dijkstra");
+       }
    } 
   });
 
@@ -218,25 +230,30 @@ void setupCommands() {
 
   clearGridCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
+    if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState)) {
        gridDisplay.clearGrid();
        resetSearch();
+    }
    } 
   });
 
   drawWallsCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
+     if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState))
        gridDisplay.startDrawingWalls();
    } 
   });
 
    setStartCommand.setReceiver( new IButtonReceiver() {
-   public void doAction(){
+   public void doAction(){ 
+     if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState))
        gridDisplay.setStart();
    } 
   });
 
    setEndCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
+     if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState))
        gridDisplay.setEnd();
    } 
   });
