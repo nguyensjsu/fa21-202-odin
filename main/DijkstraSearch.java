@@ -6,11 +6,9 @@ public class DijkstraSearch implements ISearchStrategy {
     private static Stack<Point> stack = new Stack<>();
     private static Set<String> visited = new HashSet<>();
     private static Map<String, Integer> costs = new HashMap<>();
-    private static int[][] ggrid;
     int sX, sY;
 
     public boolean search(int[][] grid, int startX, int startY, int endX, int endY) {
-        ggrid = grid;
         if (startX != sX && startY != sY) { // initial step
             sX = startX;
             sY = startY;
@@ -60,7 +58,7 @@ public class DijkstraSearch implements ISearchStrategy {
                 costs.put(n.x+","+n.y, dis);
             }
         }
-        stack.push(findNext());
+        stack.push(findNext(grid));
         return false;
     }
 
@@ -68,11 +66,11 @@ public class DijkstraSearch implements ISearchStrategy {
         return Math.abs(x2-x1) + Math.abs(y2-y1);        
     }
 
-    private Point findNext() {
+    private Point findNext(int[][] grid) {
         int d = Integer.MAX_VALUE;
         Point p = null;
-        for (int i=0; i<ggrid.length; i++) {
-            for (int j=0; j<ggrid[0].length; j++) {
+        for (int i=0; i<grid.length; i++) {
+            for (int j=0; j<grid[0].length; j++) {
                 int t = costs.get(i+","+j);
                 if (t < d && !visited.contains(i+","+j)) {
                     d = t;
@@ -84,5 +82,10 @@ public class DijkstraSearch implements ISearchStrategy {
     }
 
     public void reset() {
+        stack = new Stack<>();
+        visited = new HashSet<>();
+        costs = new HashMap<>();
+        sX = 0;
+        sY = 0;
     }
 }
