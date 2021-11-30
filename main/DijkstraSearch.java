@@ -33,7 +33,6 @@ public class DijkstraSearch implements ISearchStrategy {
             return false; // no route to point, do nothing
         String co = p.x + "," + p.y;
         visited.add(co);
-        System.out.println(p + "\t" + endX + "\t" + endY);
         if (p.x == endX && p.y == endY) {
             System.out.println("Found path");
             return true;
