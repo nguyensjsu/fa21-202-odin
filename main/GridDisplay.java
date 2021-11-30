@@ -1,6 +1,9 @@
 import processing.core.PGraphics;
 import processing.core.PApplet;
-
+import java.util.HashMap;
+import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.Random;
 
 public class GridDisplay implements IDisplayComponent, IClickEventHandler {
 
@@ -9,6 +12,8 @@ public class GridDisplay implements IDisplayComponent, IClickEventHandler {
     public static final int VISITED_CELL = 1;
     public static final int START_CELL = 3;
     public static final int END_CELL = 4;
+
+    private HashMap<Integer, ArrayList<Integer>> stateToColorMap;
   
     IClickEventHandler chain;
     private PGraphics graphics;
@@ -26,13 +31,28 @@ public class GridDisplay implements IDisplayComponent, IClickEventHandler {
         this.mouseX = mouseX;
         this.mouseY = mouseY;
         this.main = main;
-        this.grid = new int[width/cellWidth][height/cellHeight];
-        this.startX = 0;
-        this.startY = 0;
-        this.endX = this.width - 1;
-        this.endY = this.height - 1;
 
+        initGrid();
+        initColorMapping();
         setGraphicsElement(main.createGraphics(width, height, main.JAVA2D));
+    }
+
+    private void initGrid() {
+      this.grid = new int[width/cellWidth][height/cellHeight];
+      // generate random start and end positions to start with
+      this.startX = new Random().nextInt(grid.length);
+      this.startY = new Random().nextInt(grid[0].length);;
+      this.endX = new Random().nextInt(grid.length);
+      this.endY = new Random().nextInt(grid[0].length);;
+    }
+
+    private void initColorMapping() {
+      stateToColorMap = new HashMap<Integer, ArrayList<Integer>>();
+      stateToColorMap.put(EMPTY_CELL, new ArrayList<Integer>(Arrays.asList(0, 0, 0)));
+      stateToColorMap.put(WALL_CELL, new ArrayList<Integer>(Arrays.asList(200, 0, 0)));
+      stateToColorMap.put(VISITED_CELL, new ArrayList<Integer>(Arrays.asList(124, 252, 0)));
+      stateToColorMap.put(START_CELL, new ArrayList<Integer>(Arrays.asList(0, 191, 255)));
+      stateToColorMap.put(END_CELL, new ArrayList<Integer>(Arrays.asList(255, 255, 0)));
     }
 
     public void setGraphicsElement(PGraphics graphics) {
@@ -61,27 +81,14 @@ public class GridDisplay implements IDisplayComponent, IClickEventHandler {
 
         for (int x=0; x<width/cellWidth; x++) {
             for (int y=0; y<height/cellHeight; y++) {
-              switch (grid[x][y]) {
-                case 0:
-                  graphics.fill(0);
-                  break;
-                case 1:
-                  graphics.fill(124, 252, 0);
-                  break;
-                case 2:
-                  graphics.fill(200, 0, 0);
-                  break;
-                case 3: // start position
-                  graphics.fill(0, 191, 255);
-                  break;
-                case 4: // end position
-                  graphics.fill(255, 255, 0);
-                  break;
-                default:
-                  graphics.fill(0);
-                  break;
-    
-              }  
+              Integer state = grid[x][y];
+              
+              // dont redraw start/end positions
+              if (x==startX && y == startY) state = START_CELL;
+              else if (x == endX && y ==endY) state = END_CELL;
+
+              ArrayList<Integer> cellColor = stateToColorMap.get(state);
+              graphics.fill(cellColor.get(0), cellColor.get(1), cellColor.get(2));
               graphics.rect (x*cellWidth, y*cellWidth, cellWidth, cellHeight);            
             }
           }
@@ -144,7 +151,11 @@ public class GridDisplay implements IDisplayComponent, IClickEventHandler {
     }
 
     public void clearGrid() {
-      this.grid = new int[width/cellWidth][height/cellHeight];
+      for (int i=0; i < grid.length; i++) {
+        for(int j=0; j < grid[i].length; j++) {
+          grid[i][j] = EMPTY_CELL;
+        }
+      }
     }
 
     public void setStart() {

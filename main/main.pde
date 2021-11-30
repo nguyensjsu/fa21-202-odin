@@ -20,7 +20,6 @@ Keyboard keyboard;
 MainDisplay mainDisplay;
 ControlsDisplay controlsDisplay;
 GridDisplay gridDisplay;
-ISearchStrategy searchStrategy;
 
 Button startSearchButton;
 Button endSearchButton;
@@ -159,10 +158,6 @@ void keyPressed() {
   keyboard.keyPressEvent(key);
 }
 
-void changeStrategy(ISearchStrategy strategy) {
-  searchStrategy = strategy;
-}
-
 boolean search(int startX, int startY, int endX, int endY) {
   return algStateMachine.getCurrentStrategy().search(gridDisplay.getGrid(), startX, startY, endX, endY);
 }
@@ -246,15 +241,21 @@ void setupCommands() {
 
    setStartCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){ 
-     if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState))
+     if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState)) {
+       gridDisplay.clearGrid();
+       resetSearch();
        gridDisplay.setStart();
+     }
    } 
   });
 
    setEndCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
-     if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState))
+     if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState)) {
+       gridDisplay.clearGrid();
+       resetSearch();
        gridDisplay.setEnd();
+     }
    } 
   });
 
