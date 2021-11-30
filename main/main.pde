@@ -5,14 +5,6 @@ int cellSize = 10;
 // Keep track if we are in search state
 boolean found = false;
 
-// Variables for timer
-int interval = 0;
-int lastRecordedTime = 0;
-
-color green = color(0, 200, 0);
-color black = color(10,10,10);
-color red = color(200, 0, 0);
-
 int displayWidth = 840;
 int displayHeight = 460;
 
@@ -124,20 +116,16 @@ void setup() {
 
 
 void draw() {
-
-  // @Todo: Need to refactor this to make use of something like the state pattern
-  if (millis()-lastRecordedTime > interval) {
-    lastRecordedTime = millis();
     
-    if (searchStateMachine.getCurrentState() instanceof RunningSearchState) {
-      found = search(gridDisplay.getStartX(), gridDisplay.getStartY(), gridDisplay.getEndX(), gridDisplay.getEndY());
-    }
-    if (found) {
-      searchStateMachine.setStateStopped();
-      interval = 0;
-    }
+  if (searchStateMachine.getCurrentState() instanceof RunningSearchState) {
+    found = search(gridDisplay.getStartX(), gridDisplay.getStartY(), gridDisplay.getEndX(), gridDisplay.getEndY());
   }
-  // draw main display and all child displays
+
+  if (found) {
+    searchStateMachine.setStateStopped();
+  }
+
+  // draw main display and sub components
   mainDisplay.draw();
 
 }
@@ -164,7 +152,6 @@ boolean search(int startX, int startY, int endX, int endY) {
 
 void startSearch() {
   searchStateMachine.setStateRunning();
-  interval = 50;
 }
 
 void stopSearch() {
