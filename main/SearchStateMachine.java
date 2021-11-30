@@ -11,7 +11,6 @@ public class SearchStateMachine {
     }
 
     public void setStateStopped() {
-        System.out.println("SSSSSS");
         currentState = stopped;
     }
 
