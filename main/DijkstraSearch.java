@@ -52,7 +52,7 @@ public class DijkstraSearch implements ISearchStrategy {
         if (p.y != grid[0].length-1)
             neighbors.add(new Point(p.x, p.y + 1));
         for (Point n: neighbors) {
-            if (grid[n.x][n.y] == 1)
+            if (grid[n.x][n.y] != 0)
                 continue;
             int c = costs.get(co);
             int dis = calculateDistance(n.x, n.y, startX, startY);
