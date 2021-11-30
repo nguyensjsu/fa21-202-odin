@@ -169,7 +169,7 @@ Hussein Adams
 - Observer pattern used
 
 ### Architecture
-![alt text]()
+![alt text](https://github.com/nguyensjsu/fa21-202-odin/blob/main/images/keyboard_observer.png)
 
 
 ### Click Handler
@@ -181,7 +181,7 @@ Hussein Adams
 - Each component that listens for clicks will move the click along its chain of components if the click was not intended for it.
 
 ### Architecture
-![alt text]()
+![alt text](https://github.com/nguyensjsu/fa21-202-odin/blob/main/images/clicks_chain_of_responsibility.png)
 
 
 ### Display and Nested Views
@@ -193,4 +193,4 @@ Composite pattern
 Views will have nested views, these views can be added to a parent view at run time using the composite pattern.
 
 ### Architecture
-![alt text]()
+![alt text](https://github.com/nguyensjsu/fa21-202-odin/blob/main/images/display_composite.png)
