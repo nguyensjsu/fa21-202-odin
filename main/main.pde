@@ -180,7 +180,7 @@ void setupCommands() {
   bfsCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
     if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState)) {
-      gridDisplay.clearGrid();
+      gridDisplay.clearVisited();
       resetSearch();
       algStateMachine.setAlgorithm(SearchAlgorithm.BFS);
       searchAlgorithmLabel.setName("BFS");
@@ -191,7 +191,7 @@ void setupCommands() {
   dfsCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
       if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState)) {
-        gridDisplay.clearGrid();
+        gridDisplay.clearVisited();
         resetSearch();
         algStateMachine.setAlgorithm(SearchAlgorithm.DFS);
         searchAlgorithmLabel.setName("DFS");
@@ -202,7 +202,7 @@ void setupCommands() {
   dijkstraCommand.setReceiver( new IButtonReceiver() {
    public void doAction(){
        if (!(searchStateMachine.getCurrentState() instanceof RunningSearchState)) {
-          gridDisplay.clearGrid();
+          gridDisplay.clearVisited();
           resetSearch();
           algStateMachine.setAlgorithm(SearchAlgorithm.Dijkstra);
           searchAlgorithmLabel.setName("Dijkstra");

@@ -83,5 +83,6 @@ public class DijkstraSearch implements ISearchStrategy {
         return p;
     }
 
-    public void reset() {}
+    public void reset() {
+    }
 }

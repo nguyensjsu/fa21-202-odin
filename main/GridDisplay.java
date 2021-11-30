@@ -99,6 +99,7 @@ public class GridDisplay implements IDisplayComponent, IClickEventHandler {
         if (x < grid.length && y < grid[0].length && x >= 0 && y >= 0)
             grid[x][y] = state;
       }
+
     public int getCellState(int x, int y) {
       if (x < grid.length && y < grid[0].length && x >= 0 && y >= 0)
         return grid[x][y];
@@ -158,6 +159,14 @@ public class GridDisplay implements IDisplayComponent, IClickEventHandler {
       }
     }
 
+    public void clearVisited() {
+      for (int i=0; i < grid.length; i++) {
+        for(int j=0; j < grid[i].length; j++) {
+          if (grid[i][j] == VISITED_CELL) 
+            grid[i][j] = EMPTY_CELL;
+        }
+      }
+    }
     public void setStart() {
       settingEndLocation = false;
       drawingState = false;
