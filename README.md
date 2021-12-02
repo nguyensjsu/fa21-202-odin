@@ -55,7 +55,9 @@
 ## Setup
 
 - [Processing](https://www.processing.org/) is required to run the project
-- Ensure you install the `g4p` library in Processing that's required for some GUI components
+- Java-processing is also required
+    - Open Processing
+    - Click on Tools -> install processing-java
 
 ## Meeting Notes
 
