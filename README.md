@@ -12,6 +12,8 @@
 ## Areas of Contributions
 
 ## Project Summary
+  The project goal is to develop a search algorithm visualizer application using [process](processing.org) framework. It provides several search algorithms BFS, DFS and Dijkstra. By triggering the application, it will search with different paths from the starting cell until reaching the ending cell through traveling the grids. Hence, user can easily understand different algorithms' logic works by watching the visualized the processing paths.
+  
 
 ## Architecture
 
