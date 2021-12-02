@@ -10,6 +10,12 @@
 - Hussein Adams
 
 ## Areas of Contributions
+ - Hussein Adams:
+    - Developed keyboard handler using observer pattern.
+    - Developed click handler using chain of responsibility pattern.
+    - Developed UI nested views using Composite pattern.
+    - Developed and owned the UI component (Grid, Control Panel, Buttons, Labels)
+    - Fixed numerous feature integration and UI bugs.
 
 ## Project Summary
   The project goal is to develop a search algorithm visualizer application using [process](https://www.processing.org/) framework. It provides several search algorithms BFS, DFS and Dijkstra. By triggering the application, it will search with different paths from the starting cell until reaching the ending cell through traveling the grids. Hence, user can easily understand different algorithms' logic by watching the visualized processing paths.
