@@ -34,7 +34,7 @@
 
 
 - Daniel Yeung
-    - Develoepd the command pattern to assign functionality to buttons and labels.
+    - Developed the command pattern to assign functionality to buttons and labels.
 
 
 
