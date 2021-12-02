@@ -1,6 +1,8 @@
 # Odin - Search Algorithms Visualizer
 
 ## Topic
+- Interactive Application with Processing and Java
+
 
 ## Team Members
 
