@@ -32,7 +32,7 @@ public class DepthFirstSearch implements ISearchStrategy {
                 return true;
             }
             grid[p.x][p.y] = 1;
-            if (p.x >= 1 && grid[p.x - 1][p.y] != 0) {
+            if (p.x >= 1 && grid[p.x - 1][p.y] != 2) {
                 stack.push(new Point(p.x - 1, p.y));
             }
             if (p.x <= grid.length - 2 && grid[p.x + 1][p.y] != 2) {
