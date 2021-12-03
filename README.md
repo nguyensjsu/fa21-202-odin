@@ -43,6 +43,11 @@
   
 
 ## Architecture
+### High Level Architecture Without Software Interfaces
+![architecture without interfaces](images/architecture_no_sw_interfaces.png)
+
+### Architecture With Software Interfaces
+![architecture with interfaces](images/architecture_sw_interfaces.png)
 
 ## Features Summary
 
