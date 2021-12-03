@@ -59,6 +59,12 @@
     - Open Processing
     - Click on Tools -> install processing-java
 
+## UI Design
+
+UI Wireframe
+
+![alt text](https://github.com/nguyensjsu/fa21-202-odin/blob/main/images/ui_wireframe.jpg)
+
 ## Meeting Notes
 
 #### November 14th, 2021
