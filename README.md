@@ -48,9 +48,9 @@
 
 ## Links
 
-- User Story Video:
+- User Story Video: https://youtu.be/d9P7PsuO3aw
 - Demo Video:
-- Extra Credit Agile Video: <We doing this?>
+- Extra Credit Agile Video: None
 
 ## Setup
 
