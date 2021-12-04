@@ -63,10 +63,11 @@ The project goal is to develop a search algorithm visualizer application using t
 
 ## Links
 
-### Videos
 - User Story Video: https://youtu.be/d9P7PsuO3aw
 - Demo Video: https://youtu.be/D5RwkgOYTWs
 - Extra Credit Agile Video: None
+
+- Presentation Slides: https://docs.google.com/presentation/d/12jAUqIlyf_p0HFNFEZI7R5iePW8-i7_SB6a_-zKlDuc/edit?usp=sharing
 - Velocity and burn down chart: https://docs.google.com/spreadsheets/d/1AfH8bgbeG_QFUU0F9KdxXLE9ieewj1DtV_e5osFAVTI/edit?usp=sharing
 
 ### Journals
