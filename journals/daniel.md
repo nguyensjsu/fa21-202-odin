@@ -16,6 +16,7 @@ Our group discussed two project ideas before the meeting, either a game or a sea
 ## Week 2 (Nov. 18, 2021)
 - planned how to implement the whole project
 - got basic UI and functionality
+- I am assigned to work on comman pattern for buttons and labels
 - discussed future design patterns needed 
     * strategy for different algorithms
     * chain of responsibility for gui
@@ -30,18 +31,10 @@ Everyone did their research, no one is fall behind (everyone understand how proc
 ## Week 3 (Nov. 23, 2021)
 - discussed about how to work on the user story and demo
 - assigned every teammates their own tasks and repsonsibities
-- I am assigned to work on comman pattern for buttons and labels
+- other teammates volunteer to work on UI wireframe and architecture diagram
 - ongoing converstions on slack about different bugs and questions
-- 
+- everyone assigned their part to work on the google slides for the 15 mins demo
+
 ### Analysis
 Everyone is active and responsive. Not only complete their own taks, but also checking on incomplete task and error in the application.
-
-
-## Week 3 (Dec. 1, 2021)
-- user story is already completed by teammate
-- Ongoing converstion on slack to complete imcompleted requirement
-- other teammates volunteer to work on UI wireframe and architecture diagram
-- I am assigned to work on the google slides (command pattern part) for 15 mins demo
-
-### Analysis
-Everyone is kinda busy since final week is coming. However, teammates are proactive on slack and keeping moving things forward. 
+Also, teammates are proactive on slack and keeping moving things forward. 
