@@ -48,3 +48,25 @@ We decided to follow it up with another meeting as soon as we had a picture of h
 ### XP Core Value Analysis
 
 Once again in our group meeting we broke the pending tasks into the smallest steps possible. As a team we have been focussed on getting a basic proof of concept up and running before moving forward. We are ensuring that there is no extra or redundant work being done.
+
+## Week 3 (Nov. 23, 2021)
+
+### What tasks did I work on / complete?
+
+- Team meeting
+  - We broke up remaing tasks and assigned them to people to work on
+- Implemented strategy pattern for search
+- Implemented DFS and BFS search algorithms
+
+### What am I planning to work on next?
+
+- Work on the slides for the demo
+- Clean up sprint velocity sheet and other project management
+
+### What tasks are blocked waiting on another team member?
+
+- None
+
+### XP Core Value Analysis
+
+The group has been doing a phenomenal job of breaking up tasks into the simplest pieces and working on those. There was an example wherein we thought we had the components to build a Snake game, but we all collectively determined that we needed to work on the essentials of the project first. We decided to work on other aspects of the project to give the user a better experience rather than implementing the additional Snake game.
