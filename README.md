@@ -26,6 +26,7 @@
 
   - Developed the search algorithm strategy pattern.
   - Developed the BFS and DFS search algorithms.
+  - Kept track of velocity and burn down rate.
 
 - Aidan Jones
 
@@ -57,6 +58,7 @@ The project goal is to develop a search algorithm visualizer application using t
 - User Story Video: https://youtu.be/d9P7PsuO3aw
 - Demo Video:
 - Extra Credit Agile Video: None
+- Velocity and burn down chart: https://docs.google.com/spreadsheets/d/1AfH8bgbeG_QFUU0F9KdxXLE9ieewj1DtV_e5osFAVTI/edit?usp=sharing
 
 ## Setup
 
