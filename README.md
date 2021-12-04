@@ -67,6 +67,11 @@ The project goal is to develop a search algorithm visualizer application using t
   - Open Processing
   - Click on Tools -> install processing-java
 
+## Running the application
+```bash
+processing-java --force "--sketch=<path to/fa21-202-odin/main/>" "--output=<path to/fa21-202-odin/main/out>" --run
+```
+
 ## UI Design
 
 UI Wireframe
@@ -109,9 +114,12 @@ UI Wireframe
 - Hussein to also research how to import custom java classes into .pde files
 - Design meeting after we set up a barebone project.
 
-- Processing Path Finder package
 
-  - http://www.robotacid.com/PBeta/AILibrary/Pathfinder/index.html
+#### November 23rd, 2021
 
-- Processing GUI options (ControlP5?)
-  - https://processing.org/reference/libraries/#gui
+- Hussein to draw UI wireframe
+- Aiden to draw architecture diagrams
+- Meet on Dec 3rd to record demo
+- Hussein to record 1 minute user story
+- Everyone to work on slides and finish them before Dec 3rd
+- Final bug fixing and feature integration work
