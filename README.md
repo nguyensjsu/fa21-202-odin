@@ -1,8 +1,8 @@
 # Odin - Search Algorithms Visualizer
 
 ## Topic
-- Interactive Application with Processing and Java
 
+- Interactive Application with Processing and Java
 
 ## Team Members
 
@@ -13,40 +13,41 @@
 
 ## Areas of Contributions
 
- - Hussein Adams
-    - Developed keyboard handler using observer pattern.
-    - Developed click handler using chain of responsibility pattern.
-    - Developed UI nested views and managed drawing on display using Composite pattern.
-    - Developed and owned the UI component (Grid, Control Panel, Buttons, Labels)
-    - Fixed numerous feature integration and UI bugs.
-    - Created UI wireframe.
+- Hussein Adams
 
+  - Developed keyboard handler using observer pattern.
+  - Developed click handler using chain of responsibility pattern.
+  - Developed UI nested views and managed drawing on display using Composite pattern.
+  - Developed and owned the UI component (Grid, Control Panel, Buttons, Labels)
+  - Fixed numerous feature integration and UI bugs.
+  - Created UI wireframe.
 
 - Rounak Salim
-    - Developed the search algorithm strategy pattern.
-    - Developed the BFS and DFS search algorithms.
 
+  - Developed the search algorithm strategy pattern.
+  - Developed the BFS and DFS search algorithms.
 
 - Aidan Jones
-    - Developed the state pattern.
-    - Developed Dijkstra's search algorithm.
-    - Created the overall architecture diagram.
 
+  - Developed the state pattern.
+  - Developed Dijkstra's search algorithm.
+  - Created the overall architecture diagram.
 
 - Daniel Yeung
-    - Developed the command pattern to assign functionality to buttons and labels.
-
-
+  - Developed the command pattern to assign functionality to buttons and labels.
 
 ## Project Summary
-  The project goal is to develop a search algorithm visualizer application using [process](https://www.processing.org/) framework. It provides several search algorithms BFS, DFS and Dijkstra. By triggering the application, it will search with different paths from the starting cell until reaching the ending cell through traveling the grids. Hence, user can easily understand different algorithms' logic by watching the visualized processing paths.
-  
+
+The project goal is to develop a search algorithm visualizer application using the [processing](https://www.processing.org/) framework. It provides several search algorithms BFS, DFS and Dijkstra. By triggering the application, it will search with different paths from the starting cell until reaching the ending cell through traveling the grids. Hence, user can easily understand different algorithms' logic by watching the visualized processing paths.
 
 ## Architecture
+
 ### High Level Architecture Without Software Interfaces
+
 ![architecture without interfaces](images/architecture_no_sw_interfaces.png)
 
 ### Architecture With Software Interfaces
+
 ![architecture with interfaces](images/architecture_sw_interfaces.png)
 
 ## Features Summary
@@ -61,8 +62,8 @@
 
 - [Processing](https://www.processing.org/) is required to run the project
 - Processing-java is also required
-    - Open Processing
-    - Click on Tools -> install processing-java
+  - Open Processing
+  - Click on Tools -> install processing-java
 
 ## UI Design
 
