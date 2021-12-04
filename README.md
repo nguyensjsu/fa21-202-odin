@@ -52,13 +52,28 @@ The project goal is to develop a search algorithm visualizer application using t
 ![architecture with interfaces](images/architecture_sw_interfaces.png)
 
 ## Features Summary
+#### Display
+- A grid to show search state (visited, empty, obstacle, start, end)
+- A controls panel that will contain buttons and labels.
+#### User Input
+- User can draw obstacles on grid
+- User can click on buttons to control search state
+#### Search Algorithms
+- Supports multiple algorithms with ability to add new ones easily.
 
 ## Links
 
+### Videos
 - User Story Video: https://youtu.be/d9P7PsuO3aw
 - Demo Video:
 - Extra Credit Agile Video: None
 - Velocity and burn down chart: https://docs.google.com/spreadsheets/d/1AfH8bgbeG_QFUU0F9KdxXLE9ieewj1DtV_e5osFAVTI/edit?usp=sharing
+
+### Journals
+- Hussein's Journal: https://github.com/nguyensjsu/fa21-202-odin/blob/main/journals/hussein.md
+- Aidan's Journal: https://github.com/nguyensjsu/fa21-202-odin/blob/main/journals/aidan.md
+- Rounak's Journal: https://github.com/nguyensjsu/fa21-202-odin/blob/main/journals/rounak.md
+- Daniel's Journal: https://github.com/nguyensjsu/fa21-202-odin/blob/main/journals/daniel.md
 
 ## Setup
 
